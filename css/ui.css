@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #02040a;
+            color: white;
+            margin: 0;
+            padding-top: 80px; /* Évite que le contenu soit caché par la barre */
+        }
+
+        /* --- DESIGN GLASSMORPHISM TOP BAR --- */
+        .glass-header {
+            background: rgba(13, 13, 13, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- DESIGN SIDEBAR --- */
+        .glass-sidebar {
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            box-shadow: 20px 0 50px rgba(0,0,0,0.8);
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 20px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .sidebar-link:hover, .sidebar-link.active {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            transform: translateX(5px);
+        }
+
+        /* --- ANIMATIONS --- */
+        #sidebar-overlay.active {
+            visibility: visible;
+        }
+        #sidebar-overlay.active #sidebar-bg {
+            opacity: 1;
+        }
+        #sidebar-overlay.active #sidebar-panel {
+            transform: translateX(0);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #02040a;
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* Fond Animé */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 45%),
+                        radial-gradient(circle at 0% 100%, #0f172a 0%, transparent 30%);
+        }
+
+        /* Glass Card Base */
+        .glass {
+            position: relative;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Effet Spotlight (Glow qui suit la souris) */
+        .glass::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x) var(--mouse-y), 
+                rgba(255, 255, 255, 0.06), 
+                transparent 40%
+            );
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Bordure lumineuse au survol */
+        .glass:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .content-z { position: relative; z-index: 10; }
+
+        .btn-crystal {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-crystal:hover {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to bottom, #fff 40%, rgba(255,255,255,0.4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* --- CONFIGURATION MODE CLAIR --- */
+        body.light-mode {
+            background: #f0f4f8 !important; /* Gris très clair nacré */
+            color: #1e293b !important;    /* Texte ardoise foncé */
+        }
+        
+        /* Ajustement du fond lumineux en mode clair */
+        body.light-mode .bg-glow {
+            background: radial-gradient(circle at 50% -20%, #bfdbfe 0%, transparent 50%),
+                        radial-gradient(circle at 0% 100%, #e2e8f0 0%, transparent 40%) !important;
+        }
+        
+        /* Cartes Glass en mode clair */
+        body.light-mode .glass {
+            background: rgba(255, 255, 255, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.8) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03) !important;
+            backdrop-filter: blur(20px) saturate(200%) !important;
+        }
+        
+        /* Texte dégradé en mode clair */
+        body.light-mode .text-gradient {
+            background: linear-gradient(to bottom, #1e293b 40%, #64748b) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        
+        /* Ajustement des boutons secondaires */
+        body.light-mode .btn-crystal, 
+        body.light-mode a[href="login.html"],
+        body.light-mode a[href="tarifs.html"] {
+            background: rgba(0, 0, 0, 0.03) !important;
+            border-color: rgba(0, 0, 0, 0.08) !important;
+            color: #475569 !important;
+        }
+        
+        body.light-mode .text-white\/30, 
+        body.light-mode .text-white\/40,
+        body.light-mode .text-white\/50 {
+            color: #64748b !important; /* Gris intermédiaire pour les labels */
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        #typewriter {
+            animation: blink 0.8s step-end infinite;
+        }
+        
+        /* Grille d'arrière-plan type "Blueprint" */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background-image: 
+                linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px; /* Taille des carreaux */
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+        }
+        
+        /* Animation subtile de flottement pour le contenu */
+        .parallax-content {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+         }
+                @media (max-width: 768px) {
+            /* Ajustement des titres pour éviter les coupures */
+            h1 { font-size: 2.5rem !important; line-height: 1.1 !important; }
+            
+            /* On désactive les transformations au survol sur mobile pour éviter les bugs tactiles */
+            .product-card:hover { transform: none !important; }
+            .product-card:active { transform: scale(0.98); }
+        
+            /* Agrandissement des zones de clic (Accessibilité) */
+            .filter-btn, button, a { min-height: 44px; display: flex; align-items: center; justify-content: center; }
+        
+            /* Grille de produits : passage en 2 colonnes sur petits écrans pour plus de clarté */
+            #product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+            
+            /* Masquer les éléments non essentiels pour épurer le terminal mobile */
+            .mobile-hide { display: none !important; }
+        }
+        
+        /* Optimisation de la zone de saisie sur iPhone (évite le zoom automatique) */
+        input, textarea, select { font-size: 16px !important; }
+        @keyframes scan {
+            0% { transform: translateY(-20px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(80px); opacity: 0; }
+        }
+        
+        @keyframes loading-bar {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .animate-scan {
+            animation: scan 1.5s linear infinite;
+        }
+        
+        .animate-loading-bar {
+            animation: loading-bar 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        
+        /* Cache le contenu du site pendant le chargement pour éviter le flash blanc */
+        body {
+            visibility: hidden;
+        }
+        
+        body.loaded {
+            visibility: visible;
+        }
+        
+        /* deuxième partie */
+        :root {
+          --glass-bg: rgba(255,255,255,0.015);
+          --glass-border: rgba(255,255,255,0.08);
+          --accent-blue: #3b82f6;
+          --pb-blue: #3b82f6;
+          --pb-glass: rgba(10,10,10,0.6);
+          --pb-border: rgba(255,255,255,0.08);
+        }
+
+    /* BARRE DESKTOP (Haut) */
+    .nav-desktop {
+        backdrop-filter: blur(30px) saturate(150%);
+        border: 1px solid var(--pb-border);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Animation de la pilule active */
+    .nav-tab {
+        position: relative;
+        padding: 10px 20px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        color: rgba(255,255,255,0.4);
+        transition: all 0.3s;
+    }
+    .nav-tab:hover { color: white; }
+    .nav-tab.active { color: white; }
+    .nav-tab.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 20%; right: 20%;
+        height: 2px;
+        background: var(--pb-blue);
+        box-shadow: 0 0 15px var(--pb-blue);
+        border-radius: 10px;
+    }
+
+    /* BARRE MOBILE (Bas) */
+    @media (max-width: 768px) {
+        .mobile-dock {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px;
+            z-index: 1000;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+        .nav-desktop-container { display: none; }
+    }
+
+    @media (min-width: 769px) {
+        .mobile-dock { display: none; }
+    }
+
+    /* Effet de disparition au scroll */
+    .nav-hidden { transform: translateY(-100%); opacity: 0; }
+    /* troisième partie */
+    /* Ajustement pour ne pas cacher le contenu sous les barres fixes */
+    body {
+        padding-top: 60px; /* Espace pour le Top Bar Mobile */
+        padding-bottom: 90px; /* Espace pour le Dock Mobile */
+    }
+
+    @media (min-width: 640px) {
+        body {
+            padding-top: 100px;
+            padding-bottom: 0;
+        }
+    }
+
+    /* Animation subtile pour le logo au scroll */
+    .scroll-shrink {
+        transform: scale(0.9);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+        /* Effet Glassmorphism Avancé */
+    .glass-header {
+        background: rgba(13, 13, 13, 0.65);
+        backdrop-filter: blur(25px) saturate(160%) contrast(110%);
+        -webkit-backdrop-filter: blur(25px) saturate(160%) contrast(110%);
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.4),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    /* Animation au scroll pour la barre */
+    .header-scrolled {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    
+    .header-scrolled .glass-header {
+        background: rgba(10, 10, 10, 0.9);
+        border-color: rgba(59, 130, 246, 0.2);
+    }
+        @keyframes pulse-glow {
+        0% { transform: scale(0.9); opacity: 0.3; }
+        50% { transform: scale(1.3); opacity: 0.6; }
+        100% { transform: scale(0.9); opacity: 0.3; }
+    }
+
+    .animate-pulse-glow {
+        animation: pulse-glow 3s infinite ease-in-out;
+    }
+
+    /* Optionnel : cacher le dock sur PC si vous utilisez la navigation desktop */
+    @media (min-width: 768px) {
+        .mobile-dock { display: none; }
+    }
+        /* MENU */
+
+    /* Navigation Link Standard */
+    .nav-link-pro {
+        display: flex;
+        align-items: center;
+        gap: 18px; /* Espacement fixe icône-texte */
+        padding: 12px 20px;
+        border-radius: 14px;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 13.5px;
+        font-weight: 700;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+    }
+
+    .nav-link-pro i {
+        width: 20px; /* Force l'alignement vertical parfait des textes */
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .nav-link-pro:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color: white;
+        padding-left: 24px; /* Effet de décalage subtil au survol */
+    }
+
+    .nav-link-pro.active {
+        background: rgba(59, 130, 246, 0.1);
+        color: #3b82f6;
+    }
+
+    /* Styles Mode Clair (Luxe Apple) */
+    body.light-mode { background-color: #f5f5f7; color: #1d1d1f; }
+    body.light-mode #sidebar-panel { background-color: #ffffff; border-right: 1px solid rgba(0,0,0,0.05); }
+    body.light-mode .nav-link-pro { color: rgba(0,0,0,0.5); }
+    body.light-mode .nav-link-pro:hover { background: rgba(0,0,0,0.03); color: black; }
+    body.light-mode #theme-pill { background-color: rgba(0,0,0,0.05); }
+
+        .nav-link-pro {
+        display: flex;
+        align-items: center;
+        /* Aligne tout le contenu au début (à gauche) */
+        justify-content: flex-start; 
+        gap: 16px;
+        padding: 12px 20px;
+        border-radius: 14px;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 13.5px;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    /* IMPORTANT : Aligne les textes verticalement entre eux */
+    .nav-link-pro i {
+        width: 20px;      /* Largeur fixe pour l'icône */
+        text-align: left; /* Icône collée à gauche */
+        display: flex;
+        justify-content: center;
+    }
