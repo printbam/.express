@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique Haute Performance | PrintBam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
+        :root { 
+            --glass: rgba(255, 255, 255, 0.015); 
+            --border: rgba(255, 255, 255, 0.08); 
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: #02040a; 
+            color: #fff; 
+            overflow-x: hidden; 
+        }
+        
+        .bg-glow { 
+            position: fixed; inset: 0; z-index: -1; 
+            background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 45%), 
+                        radial-gradient(circle at 100% 100%, #0f172a 0%, transparent 30%); 
+        }
+
+        .glass { 
+            background: var(--glass); 
+            backdrop-filter: blur(30px) saturate(180%); 
+            border: 1px solid var(--border); 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+
+        /* Effet Loupe & Carte */
+        .product-card:hover { 
+            border-color: #3b82f6; 
+            transform: translateY(-8px); 
+            background: rgba(255, 255, 255, 0.03); 
+        }
+
+        .img-container { 
+            position: relative; 
+            overflow: hidden; 
+            background: #000;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+
+        .product-card:hover .img-container img {
+            transform: scale(1.15);
+        }
+
+        .text-gradient { 
+            background: linear-gradient(to bottom, #fff 40%, rgba(255,255,255,0.4)); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        @keyframes cart-shake {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.2) rotate(-10deg); }
+            50% { transform: scale(1.2) rotate(10deg); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-shake { animation: cart-shake 0.4s ease; }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <div class="bg-glow"></div>
+
+    <nav class="max-w-7xl mx-auto mb-12 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 glass flex items-center justify-center rounded-xl group-hover:bg-white group-hover:text-black transition-all">
+                <i class="fas fa-arrow-left text-xs"></i>
+            </div>
+            <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/40">Retour</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <button onclick="toggleCart()" class="relative glass w-12 h-12 rounded-full flex items-center justify-center border-white/5 hover:border-blue-500/50 transition-all">
+                <i class="fas fa-shopping-cart text-white/60 text-sm"></i>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-blue-600 text-[8px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+            </button>
+            <div class="text-xl font-black tracking-tighter uppercase">Print<span class="text-blue-600">bam</span></div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto space-y-12">
+        
+        <header class="text-center space-y-4">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-gradient leading-tight">Hardware & Consommables</h1>
+            <p class="text-white/40 text-[10px] font-black uppercase tracking-[0.4em]">Infrastructure de production certifiée</p>
+        </header>
+
+        <div class="flex justify-center gap-3 flex-wrap">
+            <button data-filter="all" class="filter-btn px-6 py-2.5 rounded-full glass border-blue-500/30 text-[9px] font-black uppercase tracking-widest text-blue-500 bg-blue-500/5">Tout</button>
+            <button data-filter="toner" class="filter-btn px-6 py-2.5 rounded-full glass text-[9px] font-black uppercase tracking-widest text-white/30 hover:text-white transition-all">Toners</button>
+            <button data-filter="papier" class="filter-btn px-6 py-2.5 rounded-full glass text-[9px] font-black uppercase tracking-widest text-white/30 hover:text-white transition-all">Papier</button>
+            <button data-filter="hardware" class="filter-btn px-6 py-2.5 rounded-full glass text-[9px] font-black uppercase tracking-widest text-white/30 hover:text-white transition-all">Hardware</button>
+        </div>
+
+        <section id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="glass p-5 product-card group rounded-[32px]" data-category="toner" data-price="85000" data-name="Toner HP 05A Noir">
+                <div class="img-container aspect-square rounded-2xl mb-5 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&q=80&w=600" alt="Toner">
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-blue-600 text-[8px] font-black rounded text-white uppercase tracking-widest">Origine</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-sm font-bold text-white/90">Pack Toner HP Laserjet 05A</h3>
+                    <p class="text-[9px] text-white/30 font-medium">Noir - 2300 pages</p>
+                </div>
+                <div class="flex justify-between items-center mt-6">
+                    <span class="text-lg font-black tracking-tighter">85.000 <span class="text-[10px] text-blue-500">Fc</span></span>
+                    <button onclick="addToCart('Toner HP 05A Noir', 85000)" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fas fa-plus text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass p-5 product-card group rounded-[32px]" data-category="papier" data-price="14500" data-name="Ramette A4 Double A">
+                <div class="img-container aspect-square rounded-2xl mb-5 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?auto=format&fit=crop&q=80&w=600" alt="Papier">
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-sm font-bold text-white/90">Ramette Papier A4 Double A</h3>
+                    <p class="text-[9px] text-white/30 font-medium">80g - 500 Feuilles</p>
+                </div>
+                <div class="flex justify-between items-center mt-6">
+                    <span class="text-lg font-black tracking-tighter">14.500 <span class="text-[10px] text-blue-500">Fc</span></span>
+                    <button onclick="addToCart('Ramette A4 Double A', 14500)" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fas fa-plus text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass p-5 product-card group rounded-[32px]" data-category="hardware" data-price="250000" data-name="SSD Samsung 1To">
+                <div class="img-container aspect-square rounded-2xl mb-5 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&q=80&w=600" alt="SSD">
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-sm font-bold text-white/90">SSD Samsung 980 Pro</h3>
+                    <p class="text-[9px] text-white/30 font-medium">1To NVMe M.2 - Ultra Fast</p>
+                </div>
+                <div class="flex justify-between items-center mt-6">
+                    <span class="text-lg font-black tracking-tighter">250.000 <span class="text-[10px] text-blue-500">Fc</span></span>
+                    <button onclick="addToCart('SSD Samsung 1To', 250000)" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fas fa-plus text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass p-5 product-card group rounded-[32px]" data-category="hardware" data-price="95000" data-name="Logitech MX Keys">
+                <div class="img-container aspect-square rounded-2xl mb-5 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&q=80&w=600" alt="Keyboard">
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-sm font-bold text-white/90">Logitech MX Keys S</h3>
+                    <p class="text-[9px] text-white/30 font-medium">Sans fil - Rétroéclairé</p>
+                </div>
+                <div class="flex justify-between items-center mt-6">
+                    <span class="text-lg font-black tracking-tighter">95.000 <span class="text-[10px] text-blue-500">Fc</span></span>
+                    <button onclick="addToCart('Logitech MX Keys', 95000)" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-600 transition-all">
+                        <i class="fas fa-plus text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:w-[450px] z-[100] translate-x-full transition-transform duration-500 ease-in-out">
+            <div class="absolute inset-0 glass rounded-l-[40px] border-l border-white/10 backdrop-blur-3xl bg-black/60 shadow-2xl"></div>
+            <div class="relative h-full flex flex-col p-8">
+                <div class="flex justify-between items-center mb-10">
+                    <h2 class="text-xl font-black tracking-tighter uppercase italic">Mon <span class="text-blue-500">Panier</span></h2>
+                    <button onclick="toggleCart()" class="w-10 h-10 glass rounded-full flex items-center justify-center"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="cart-items" class="flex-1 overflow-y-auto space-y-4 custom-scrollbar">
+                    </div>
+                <div class="mt-8 pt-8 border-t border-white/5 space-y-6">
+                    <div class="flex justify-between items-end">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-white/30">Total</span>
+                        <span id="cart-total-display" class="text-3xl font-black tracking-tighter">0 <span class="text-xs text-blue-500 italic">Fc</span></span>
+                    </div>
+                    <button onclick="openCheckout()" class="w-full py-5 bg-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-[0.3em] hover:bg-blue-500 transition-all">Finaliser la commande</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="checkout-modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4">
+            <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeCheckout()"></div>
+            <div class="relative w-full max-w-md glass p-10 rounded-[40px] border-white/10 shadow-2xl">
+                <h3 class="text-2xl font-black text-center mb-8 italic">CHECK<span class="text-blue-500">OUT</span></h3>
+                <form id="order-form" class="space-y-4">
+                    <input type="text" id="cust-name" placeholder="Nom Complet" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-xs focus:border-blue-500 outline-none">
+                    <input type="tel" id="cust-tel" placeholder="Téléphone WhatsApp" required class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-xs focus:border-blue-500 outline-none">
+                    <button type="submit" class="w-full py-5 bg-[#25D366] text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.3em] flex items-center justify-center gap-3">
+                        <i class="fab fa-whatsapp text-lg"></i> Envoyer sur WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[90] hidden opacity-0 transition-opacity duration-500"></div>
+
+    </main>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            drawer.classList.toggle('translate-x-full');
+            overlay.classList.toggle('hidden');
+            setTimeout(() => overlay.classList.toggle('opacity-100'), 10);
+        }
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            updateCartUI();
+            
+            const icon = document.querySelector('.fa-shopping-cart');
+            icon.classList.add('animate-shake');
+            setTimeout(() => icon.classList.remove('animate-shake'), 400);
+        }
+
+        function updateCartUI() {
+            const list = document.getElementById('cart-items');
+            const count = document.getElementById('cart-count');
+            const totalDisplay = document.getElementById('cart-total-display');
+            
+            list.innerHTML = "";
+            total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                list.innerHTML += `
+                    <div class="flex items-center gap-4 glass p-4 rounded-2xl border-white/5">
+                        <div class="flex-1">
+                            <h4 class="text-[10px] font-black uppercase">${item.name}</h4>
+                            <p class="text-[10px] text-blue-500 font-bold">${item.price.toLocaleString()} Fc</p>
+                        </div>
+                        <button onclick="removeItem(${index})" class="text-white/20 hover:text-red-500"><i class="fas fa-trash-alt text-xs"></i></button>
+                    </div>`;
+            });
+
+            count.innerText = cart.length;
+            totalDisplay.innerHTML = `${total.toLocaleString()} <span class="text-xs text-blue-500 italic">Fc</span>`;
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function openCheckout() {
+            if(cart.length === 0) return alert("Votre panier est vide");
+            toggleCart();
+            document.getElementById('checkout-modal').classList.replace('hidden', 'flex');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.replace('flex', 'hidden');
+        }
+
+        document.getElementById('order-form').onsubmit = function(e) {
+            e.preventDefault();
+            const nom = document.getElementById('cust-name').value;
+            const tel = document.getElementById('cust-tel').value;
+            
+            let articles = cart.map(i => `- ${i.name} (${i.price}Fc)`).join('%0A');
+            let msg = `🚀 *NOUVELLE COMMANDE PRINTBAM*%0A%0A👤 *Client :* ${nom}%0A📞 *Tel :* ${tel}%0A%0A📦 *Articles :*%0A${articles}%0A%0A💰 *TOTAL :* ${total.toLocaleString()} Fc`;
+            
+            window.open(`https://wa.me/243853070029?text=${msg}`, '_blank');
+            
+            cart = [];
+            updateCartUI();
+            closeCheckout();
+        };
+
+        // Filtrage
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.onclick = () => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.className = "filter-btn px-6 py-2.5 rounded-full glass text-[9px] font-black uppercase tracking-widest text-white/30 hover:text-white transition-all";
+                });
+                btn.className = "filter-btn px-6 py-2.5 rounded-full glass border-blue-500/30 text-[9px] font-black uppercase tracking-widest text-blue-500 bg-blue-500/5";
+                
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.product-card').forEach(p => {
+                    p.style.display = (filter === 'all' || p.dataset.category === filter) ? "block" : "none";
+                });
+            };
+        });
+    </script>
+</body>
+<footer class="mt-32 border-t border-white/5 pt-16 pb-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        
+        <div class="space-y-6">
+            <div class="text-2xl font-black tracking-tighter uppercase">Print<span class="text-blue-600">bam</span></div>
+            <p class="text-[10px] text-white/40 leading-relaxed uppercase tracking-widest">
+                Infrastructure documentaire haute performance. <br>
+                Matérialisation de l'excellence à Kinshasa.
+            </p>
+            <div class="flex gap-4">
+                <a href="#" class="w-8 h-8 glass rounded-full flex items-center justify-center text-white/20 hover:text-blue-500 transition-all text-xs"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="w-8 h-8 glass rounded-full flex items-center justify-center text-white/20 hover:text-blue-500 transition-all text-xs"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="w-8 h-8 glass rounded-full flex items-center justify-center text-white/20 hover:text-[#25D366] transition-all text-xs"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-[9px] font-black uppercase tracking-[0.3em] text-blue-500">Solutions</h4>
+            <ul class="space-y-2 text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                <li><a href="#" class="hover:text-white transition-colors">Impression Cloud</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Maintenance Hardware</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Fournitures Pro</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Archivage Digital</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-[9px] font-black uppercase tracking-[0.3em] text-blue-500">Infrastructure</h4>
+            <ul class="space-y-2 text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                <li><a href="#" class="hover:text-white transition-colors">Statut Réseau</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Centre d'aide</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Livraison Express</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Sécurité AES-256</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-4">
+            <h4 class="text-[9px] font-black uppercase tracking-[0.3em] text-blue-500">Direct Contact</h4>
+            <div class="glass p-4 rounded-2xl border-white/5">
+                <p class="text-[10px] font-black uppercase tracking-tighter mb-2">Kinshasa, Gombe</p>
+                <p class="text-[9px] text-white/30 uppercase mb-4">Avenue de l'Équateur, Imm. Crystal</p>
+                <a href="mailto:contact@printbam.com" class="text-[9px] font-black text-blue-500 uppercase tracking-widest hover:underline">contact@printbam.com</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 pt-8">
+        <p class="text-[8px] font-black text-white/20 uppercase tracking-[0.5em]">
+            &copy; 2026 PrintBam Protocol. All Rights Reserved.
+        </p>
+        <div class="flex gap-8 opacity-20 text-[8px] font-black uppercase tracking-widest">
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+            <span>Uptime: 99.9%</span>
+        </div>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide & FAQ - PrintBam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .logo-font { font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -1.5px; }
+        .faq-answer { display: none; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .fa-chevron-down { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="bg-blue-600 text-white p-2 rounded-xl">
+                    <i class="fas fa-print"></i>
+                </div>
+                <span class="logo-font text-2xl text-blue-900 uppercase">Print<span class="text-blue-600">bam</span></span>
+            </a>
+            <a href="index.html" class="text-sm font-bold text-blue-600 border-2 border-blue-600 px-6 py-2 rounded-full hover:bg-blue-600 hover:text-white transition">Commander</a>
+        </div>
+    </nav>
+
+    <section class="py-20 bg-blue-900 text-white text-center px-4">
+        <h1 class="text-4xl md:text-5xl font-black mb-6 italic uppercase">Comment peut-on vous <span class="text-blue-400">aider ?</span></h1>
+        <div class="max-w-xl mx-auto relative">
+            <input type="text" placeholder="Rechercher une réponse..." class="w-full py-5 px-8 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/50 focus:bg-white focus:text-slate-900 focus:outline-none transition-all">
+            <i class="fas fa-search absolute right-6 top-1/2 -translate-y-1/2 text-white/50"></i>
+        </div>
+    </section>
+
+    <main class="max-w-3xl mx-auto py-20 px-4">
+        
+        <div class="space-y-4">
+            <div class="faq-item bg-white border border-slate-200 rounded-[2rem] overflow-hidden transition-all hover:border-blue-400">
+                <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center outline-none">
+                    <span class="text-lg font-black text-slate-800">Quels types de fichiers sont acceptés ?</span>
+                    <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+                </button>
+                <div class="faq-answer px-8 pb-8 text-slate-600 leading-relaxed font-medium">
+                    Pour garantir une qualité d'impression parfaite, nous acceptons uniquement les fichiers au format <span class="text-blue-600 font-bold">PDF</span>. Si votre document est un Word ou une photo, veuillez le "Enregistrer sous PDF" avant de l'envoyer sur **PrintBam**.
+                </div>
+            </div>
+
+            <div class="faq-item bg-white border border-slate-200 rounded-[2rem] overflow-hidden transition-all hover:border-blue-400">
+                <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center outline-none">
+                    <span class="text-lg font-black text-slate-800">Comment se passe le paiement ?</span>
+                    <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+                </button>
+                <div class="faq-answer px-8 pb-8 text-slate-600 leading-relaxed font-medium">
+                    Nous utilisons les systèmes Mobile Money les plus sécurisés en RDC :
+                    <ul class="list-disc ml-6 mt-3 space-y-2">
+                        <li>M-Pesa</li>
+                        <li>Orange Money</li>
+                        <li>Airtel Money</li>
+                    </ul>
+                    Le paiement s'effectue directement sur le site après avoir validé votre panier.
+                </div>
+            </div>
+
+            <div class="faq-item bg-white border border-slate-200 rounded-[2rem] overflow-hidden transition-all hover:border-blue-400">
+                <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center outline-none">
+                    <span class="text-lg font-black text-slate-800">Quels sont les délais de livraison ?</span>
+                    <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+                </button>
+                <div class="faq-answer px-8 pb-8 text-slate-600 leading-relaxed font-medium">
+                    Si vous choisissez l'option <span class="text-orange-600 font-bold">Express BAM</span>, vous recevez vos documents en moins de 2 heures (disponible à Gombe, Limete et Kintambo). Pour la livraison standard, comptez entre 4 et 24 heures.
+                </div>
+            </div>
+
+            <div class="faq-item bg-white border border-slate-200 rounded-[2rem] overflow-hidden transition-all hover:border-blue-400">
+                <button onclick="toggleFaq(this)" class="w-full p-8 text-left flex justify-between items-center outline-none">
+                    <span class="text-lg font-black text-slate-800">Ma commande est-elle confidentielle ?</span>
+                    <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+                </button>
+                <div class="faq-answer px-8 pb-8 text-slate-600 leading-relaxed font-medium">
+                    Absolument. Vos fichiers sont cryptés lors de l'envoi et supprimés de nos serveurs 24h après l'impression. Aucun humain ne consulte le contenu de vos documents sauf pour contrôle technique de qualité.
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 text-center">
+            <h3 class="text-xl font-bold mb-6 italic text-slate-400">Vous ne trouvez pas votre réponse ?</h3>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="https://wa.me/243000000000" class="flex items-center justify-center gap-3 bg-green-600 text-white px-8 py-4 rounded-2xl font-black hover:bg-green-700 transition shadow-lg">
+                    <i class="fab fa-whatsapp text-xl"></i> Écrire sur WhatsApp
+                </a>
+                <a href="mailto:support@printbam.com" class="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl font-black hover:bg-black transition shadow-lg">
+                    <i class="fas fa-envelope text-xl"></i> Envoyer un Email
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12 text-center text-slate-400 font-bold text-xs uppercase tracking-[0.2em]">
+        PrintBam - Centre d'Assistance 2026
+    </footer>
+
+    <script>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

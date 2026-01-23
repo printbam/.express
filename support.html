@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Direct | PrintBam Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        :root { --glass: rgba(255, 255, 255, 0.015); --border: rgba(255, 255, 255, 0.08); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #02040a; color: #fff; overflow-x: hidden; }
+        
+        .bg-glow { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 45%); }
+        .glass { background: var(--glass); backdrop-filter: blur(30px) saturate(180%); border: 1px solid var(--border); border-radius: 32px; transition: all 0.4s ease; }
+        
+        .input-glass { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; transition: all 0.3s; }
+        .input-glass:focus { border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); outline: none; box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); }
+        
+        .status-pulse { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; position: relative; }
+        .status-pulse::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: #3b82f6; opacity: 0.4; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(3); opacity: 0; } }
+
+        .text-gradient { background: linear-gradient(to bottom, #fff 40%, rgba(255,255,255,0.4)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <div class="bg-glow"></div>
+
+    <nav class="max-w-7xl mx-auto mb-20 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 glass flex items-center justify-center rounded-xl group-hover:bg-white group-hover:text-black transition-all">
+                <i class="fas fa-arrow-left text-xs"></i>
+            </div>
+            <span class="text-[9px] font-black uppercase tracking-[0.3em] text-white/40">Terminal</span>
+        </a>
+        <div class="text-xl font-black tracking-tighter uppercase">Print<span class="text-blue-600">bam</span></div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto">
+        <header class="text-center mb-16 space-y-4">
+            <div class="inline-flex items-center gap-3 px-4 py-2 glass rounded-full mb-4">
+                <div class="status-pulse"></div>
+                <span class="text-[8px] font-black uppercase tracking-widest text-blue-400">Canal de support ouvert</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-gradient italic">Support <span class="text-blue-600">Direct</span></h1>
+            <p class="text-[10px] text-white/30 font-black uppercase tracking-[0.5em]">Assistance technique prioritaire sous 15 min</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <a href="https://wa.me/243853070029" class="glass p-6 text-center group hover:border-green-500/50 transition-all">
+                <i class="fab fa-whatsapp text-2xl text-green-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                <h4 class="text-[10px] font-black uppercase tracking-widest">WhatsApp</h4>
+                <p class="text-[8px] text-white/30 mt-2">Réponse instantanée</p>
+            </a>
+            <div class="glass p-6 text-center group hover:border-blue-500/50 transition-all">
+                <i class="fas fa-headset text-2xl text-blue-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                <h4 class="text-[10px] font-black uppercase tracking-widest">Appel Direct</h4>
+                <p class="text-[8px] text-white/30 mt-2">+243 853 070 029</p>
+            </div>
+            <div class="glass p-6 text-center group hover:border-purple-500/50 transition-all">
+                <i class="fas fa-envelope text-2xl text-purple-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                <h4 class="text-[10px] font-black uppercase tracking-widest">E-mail Pro</h4>
+                <p class="text-[8px] text-white/30 mt-2">support@printbam.com</p>
+            </div>
+        </div>
+
+        <div class="glass p-8 md:p-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 opacity-5">
+                <i class="fas fa-shield-alt text-8xl"></i>
+            </div>
+            
+            <form action="#" class="space-y-8 relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[8px] font-black uppercase tracking-widest text-white/40 ml-2">Identifiant Client / Nom</label>
+                        <input type="text" placeholder="Ex: Entreprise Congo" class="w-full px-6 py-4 input-glass text-xs text-white placeholder:text-white/10">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[8px] font-black uppercase tracking-widest text-white/40 ml-2">Nature du Problème</label>
+                        <select class="w-full px-6 py-4 input-glass text-xs text-white/60 appearance-none bg-transparent">
+                            <option class="bg-[#02040a]">Hardware / Maintenance</option>
+                            <option class="bg-[#02040a]">Commande en cours</option>
+                            <option class="bg-[#02040a]">Facturation</option>
+                            <option class="bg-[#02040a]">Autre infrastructure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-[8px] font-black uppercase tracking-widest text-white/40 ml-2">Description du besoin</label>
+                    <textarea rows="4" placeholder="Détaillez votre demande pour un traitement accéléré..." class="w-full px-6 py-4 input-glass text-xs text-white placeholder:text-white/10"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-5 bg-blue-600 rounded-2xl font-black text-[10px] uppercase tracking-[0.3em] shadow-xl shadow-blue-500/20 hover:bg-blue-500 hover:-translate-y-1 transition-all flex items-center justify-center gap-3">
+                    Transmettre au centre de contrôle
+                    <i class="fas fa-paper-plane text-[8px]"></i>
+                </button>
+            </form>
+        </div>
+
+        <footer class="mt-20 pb-10 flex flex-col items-center gap-6">
+            <div class="flex gap-12 opacity-30">
+                <div class="text-center">
+                    <p class="text-xl font-black italic">99.9%</p>
+                    <p class="text-[7px] font-black uppercase tracking-[0.3em]">Résolution</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xl font-black italic">&lt;15m</p>
+                    <p class="text-[7px] font-black uppercase tracking-[0.3em]">Latence</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-xl font-black italic">24/7</p>
+                    <p class="text-[7px] font-black uppercase tracking-[0.3em]">Monitoring</p>
+                </div>
+            </div>
+            <p class="text-[8px] text-white/10 uppercase tracking-[0.6em]">Support Protocol v4.0 — Security Enabled</p>
+        </footer>
+    </main>
+  <script>
+    document.querySelector('form').onsubmit = function(e) {
+    e.preventDefault();
+
+    // 1. Récupération des données du formulaire
+    const client = this.querySelector('input[type="text"]').value;
+    const motif = this.querySelector('select').value;
+    const message = this.querySelector('textarea').value;
+
+    // 2. Configuration du destinataire (Votre numéro)
+    const monNumero = "243853070029"; 
+
+    // 3. Construction du rapport technique formaté
+    let corpsMessage = `🛠️ *TICKET DE SUPPORT PRINTBAM*%0A%0A`;
+    corpsMessage += `👤 *Client :* ${client}%0A`;
+    corpsMessage += `📂 *Catégorie :* ${motif}%0A%0A`;
+    corpsMessage += `📝 *Description du problème :*%0A${message}%0A%0A`;
+    corpsMessage += `---%0A_Envoyé via le Terminal de Support PrintBam_`;
+
+    // 4. Génération du lien et redirection
+    const whatsappUrl = `https://wa.me/${monNumero}?text=${corpsMessage}`;
+    
+    // Animation de validation avant envoi
+    const btn = this.querySelector('button');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cryptage du ticket...';
+    btn.style.background = "#10b981";
+
+    setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        btn.innerHTML = 'Ticket Transmis <i class="fas fa-check"></i>';
+    }, 1200);
+};
+  </script>
+</body>
+</html>

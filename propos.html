@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | PrintBam Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        :root { --glass: rgba(255, 255, 255, 0.015); --border: rgba(255, 255, 255, 0.08); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #02040a; color: #fff; overflow-x: hidden; }
+        
+        .bg-glow { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 45%), radial-gradient(circle at 0% 100%, #0f172a 0%, transparent 30%); }
+        .glass { background: var(--glass); backdrop-filter: blur(30px) saturate(180%); border: 1px solid var(--border); border-radius: 32px; }
+        .text-gradient { background: linear-gradient(to bottom, #fff 40%, rgba(255,255,255,0.4)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .stat-card:hover { transform: translateY(-10px); border-color: #3b82f6; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <div class="bg-glow"></div>
+
+    <nav class="max-w-6xl mx-auto mb-16 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 glass flex items-center justify-center rounded-xl group-hover:bg-white group-hover:text-black transition-all">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <span class="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-white">Retour Terminal</span>
+        </a>
+        <div class="text-2xl font-black tracking-tighter uppercase">Print<span class="text-blue-600">bam</span></div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto space-y-20">
+        
+        <section class="text-center space-y-6">
+            <span class="px-6 py-2 glass rounded-full text-[10px] font-black uppercase tracking-[0.4em] text-blue-500 border-blue-500/20">Notre Vision v3.0</span>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-gradient leading-tight">L'impression Cloud <br> sans compromis.</h1>
+            <p class="max-w-2xl mx-auto text-white/50 text-lg font-medium leading-relaxed">
+                PrintBam redéfinit la logistique documentaire en connectant vos fichiers au monde physique via une infrastructure cloud sécurisée et ultra-rapide.
+            </p>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass p-10 stat-card">
+                <div class="text-4xl font-black text-blue-600 mb-2">99.9%</div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-white/30">Disponibilité Réseau</div>
+            </div>
+            <div class="glass p-10 stat-card">
+                <div class="text-4xl font-black text-blue-600 mb-2">15 min</div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-white/30">Délai moyen de production</div>
+            </div>
+            <div class="glass p-10 stat-card">
+                <div class="text-4xl font-black text-blue-600 mb-2">243+</div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-white/30">Points de livraison</div>
+            </div>
+        </section>
+
+        <section class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="glass p-8 md:p-12 space-y-6">
+                <h2 class="text-3xl font-black tracking-tight">Notre Mission</h2>
+                <p class="text-white/60 leading-relaxed italic">
+                    "Permettre à chaque entrepreneur, étudiant et entreprise en RDC d'accéder à une qualité d'impression Premium sans les contraintes de maintenance, de coût de matériel ou de déplacement."
+                </p>
+                <div class="space-y-4 pt-6">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span class="text-sm font-bold">Sécurité maximale des données (Cryptage AES-256)</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span class="text-sm font-bold">Paiement Mobile Money intégré (Flutterwave)</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-check-circle text-blue-500"></i>
+                        <span class="text-sm font-bold">Zéro papier gaspillé : Optimisation algorithmique</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-[40px] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <div class="relative glass p-4 h-[400px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover rounded-[24px] opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-10 py-10">
+            <h2 class="text-center text-[11px] font-black uppercase tracking-[0.5em] text-white/20">Nos Valeurs Fondamentales</h2>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="glass p-6 text-center space-y-3">
+                    <i class="fas fa-bolt text-yellow-500 text-xl"></i>
+                    <h3 class="font-black text-[10px] uppercase tracking-widest">Rapidité</h3>
+                </div>
+                <div class="glass p-6 text-center space-y-3">
+                    <i class="fas fa-shield-alt text-blue-500 text-xl"></i>
+                    <h3 class="font-black text-[10px] uppercase tracking-widest">Fiabilité</h3>
+                </div>
+                <div class="glass p-6 text-center space-y-3">
+                    <i class="fas fa-leaf text-green-500 text-xl"></i>
+                    <h3 class="font-black text-[10px] uppercase tracking-widest">Écologie</h3>
+                </div>
+                <div class="glass p-6 text-center space-y-3">
+                    <i class="fas fa-fingerprint text-purple-500 text-xl"></i>
+                    <h3 class="font-black text-[10px] uppercase tracking-widest">Identité</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass p-12 text-center border-blue-500/20 bg-blue-600/5">
+            <h2 class="text-4xl font-black mb-6 tracking-tighter">Prêt à imprimer le futur ?</h2>
+            <a href="commande.html" class="inline-block bg-white text-black px-12 py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-blue-600 hover:text-white transition-all shadow-xl shadow-blue-500/20">
+                Lancer ma première commande
+            </a>
+        </section>
+
+        <section class="space-y-16 py-10">
+            <div class="text-center space-y-4">
+                <h2 class="text-[11px] font-black uppercase tracking-[0.5em] text-blue-500">Architectes du Système</h2>
+                <h3 class="text-4xl font-black tracking-tighter text-gradient">L'esprit derrière la machine.</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-8 text-center group hover:border-blue-500/50 transition-all duration-500">
+                    <div class="relative w-32 h-32 mx-auto mb-6">
+                        <div class="absolute inset-0 bg-blue-600 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=02040a" alt="CEO" class="relative w-full h-full rounded-full border-2 border-white/10 p-2 bg-[#0a0c14]">
+                        <div class="absolute bottom-1 right-1 w-6 h-6 bg-emerald-500 border-4 border-[#02040a] rounded-full shadow-lg"></div>
+                    </div>
+                    <h4 class="text-xl font-black tracking-tight">Félix Kabange</h4>
+                    <p class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mt-1">Chief Visionary Officer</p>
+                    <p class="text-white/40 text-xs mt-4 leading-relaxed px-4">Expert en infrastructure Cloud et passionné par la digitalisation du marché Congolais.</p>
+                    <div class="flex justify-center gap-4 mt-6 text-white/20 group-hover:text-white/60 transition-colors">
+                        <a href="#"><i class="fab fa-linkedin-in hover:text-blue-500"></i></a>
+                        <a href="#"><i class="fab fa-twitter hover:text-blue-400"></i></a>
+                    </div>
+                </div>
+
+                <div class="glass p-8 text-center group hover:border-purple-500/50 transition-all duration-500">
+                    <div class="relative w-32 h-32 mx-auto mb-6">
+                        <div class="absolute inset-0 bg-purple-600 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah&backgroundColor=02040a" alt="CTO" class="relative w-full h-full rounded-full border-2 border-white/10 p-2 bg-[#0a0c14]">
+                        <div class="absolute bottom-1 right-1 w-6 h-6 bg-emerald-500 border-4 border-[#02040a] rounded-full shadow-lg"></div>
+                    </div>
+                    <h4 class="text-xl font-black tracking-tight">Sarah Mwamba</h4>
+                    <p class="text-[10px] font-bold text-purple-500 uppercase tracking-widest mt-1">Lead Systems Architect</p>
+                    <p class="text-white/40 text-xs mt-4 leading-relaxed px-4">Architecte logiciel spécialisée dans l'automatisation des flux d'impression haute performance.</p>
+                    <div class="flex justify-center gap-4 mt-6 text-white/20 group-hover:text-white/60 transition-colors">
+                        <a href="#"><i class="fab fa-linkedin-in hover:text-purple-500"></i></a>
+                        <a href="#"><i class="fab fa-github hover:text-white"></i></a>
+                    </div>
+                </div>
+
+                <div class="glass p-8 text-center group hover:border-cyan-500/50 transition-all duration-500 sm:col-span-2 lg:col-span-1">
+                    <div class="relative w-32 h-32 mx-auto mb-6">
+                        <div class="absolute inset-0 bg-cyan-600 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marc&backgroundColor=02040a" alt="COO" class="relative w-full h-full rounded-full border-2 border-white/10 p-2 bg-[#0a0c14]">
+                        <div class="absolute bottom-1 right-1 w-6 h-6 bg-emerald-500 border-4 border-[#02040a] rounded-full shadow-lg"></div>
+                    </div>
+                    <h4 class="text-xl font-black tracking-tight">Marc Ilunga</h4>
+                    <p class="text-[10px] font-bold text-cyan-500 uppercase tracking-widest mt-1">Head of Logistics</p>
+                    <p class="text-white/40 text-xs mt-4 leading-relaxed px-4">Garanti que chaque commande arrive à destination dans les délais records du protocole v3.0.</p>
+                    <div class="flex justify-center gap-4 mt-6 text-white/20 group-hover:text-white/60 transition-colors">
+                        <a href="#"><i class="fab fa-linkedin-in hover:text-cyan-500"></i></a>
+                        <a href="#"><i class="fas fa-envelope hover:text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 py-10 text-center border-t border-white/5">
+        <p class="text-[9px] text-white/20 uppercase tracking-[0.4em]">© 2026 PrintBam Infrastructure. Conçu pour le futur.</p>
+    </footer>
+
+</body>
+</html>
