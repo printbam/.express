@@ -1,3 +1,8 @@
+type="text/javascript">
+      (function(){
+          // Remplacez "YOUR_PUBLIC_KEY" par votre clé publique EmailJS
+          emailjs.init("thg5rkoV_YE3VuWnU");
+       })(); 
 /* =====================================================
    GLASS CARD SPOTLIGHT EFFECT
 ===================================================== */
