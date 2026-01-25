@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#02040a">
     <link rel="apple-touch-icon" href="logo-printbam-icon2.png">
-    <link rel="icon" type="image/png" href="logo-printbam-icon2.png">
+    <link rel="icon" type="image/png" href="logo-printbam-icon.png">
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-title" content="Printbam">
     <title>Printbam v3.0</title>
@@ -19,49 +19,45 @@
 <body>
         <div id="loader" class="fixed inset-0 z-[200] bg-[#02040a] flex flex-col items-center justify-center transition-opacity duration-700">
             <div class="relative">
-                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="animate-pulse">
-                    <path d="M50 5L90 27.5V72.5L50 95L10 72.5V27.5L50 5Z" stroke="#3b82f6" stroke-width="1" fill="rgba(59, 130, 246, 0.05)"/>
-                    <rect x="35" y="35" width="30" height="30" rx="4" fill="#3b82f6"/>
-                    <path d="M40 35V25M50 35V25M60 35V25M40 65V75M50 65V75M60 65V75M35 40H25M35 50H25M35 60H25M65 40H75M65 50H75M65 60H75" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                
-                <div class="absolute inset-0 border-t-2 border-blue-500/50 h-1/2 animate-scan"></div>
-            <!-- partie deuxième             -->
+                <img src="logo-printbam-icon.png" alt="Printbam Logo" class="h-[20%] rounded-md">
             </div>
-                        
-                        <div class="mt-8 flex flex-col items-center gap-2">
-                                <span class="text-[8px] font-black uppercase tracking-[0.8em] text-blue-500 animate-pulse">Initialisation...</span>
-                                <div class="w-32 h-[1px] bg-white/5 relative overflow-hidden">
-                                    <div class="absolute inset-0 bg-blue-600 animate-loading-bar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-grid" id="parallax-bg"></div>
-                        <div class="bg-glow"></div>
-                        <div class="sm:hidden fixed top-0 w-full z-[1002] px-4 py-3 transition-all duration-500" id="mobile-header">
-                            <!-- barre du téléphone -->
-        <div class="glass-header rounded-[24px] px-5 py-3 flex items-center justify-between transition-all duration-300">
-            
-            <button onclick="toggleSidebar()" class="flex items-center gap-3 outline-none">
-                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
-                    <i class="fas fa-bars text-white text-xs"></i>
-                </div>
-
-                <div class="flex flex-col items-start">
-                    <span class="text-sm font-[900] tracking-tighter leading-tight text-white ">
-                        Print<span class="text-blue-500">bam</span>
-                    </span>
-                    <span class="text-[7px] font-extrabold tracking-[0.35em] text-white/40 -mt-0.5">
-                        Savoir numerique
-                    </span>
-                </div>
-            </button>
-
-            <button class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-white/30">
-                <i class="fas fa-user text-xs"></i>
-            </button>
         </div>
+                <div class="bg-grid" id="parallax-bg"></div>
+                <div class="bg-glow"></div>
+            <!-- barre du téléphone -->
+           <div class="sm:hidden fixed top-0 w-full z-[1002] px-4 py-4 transition-all duration-700" id="mobile-header">
+    
+    <div class="flex items-center justify-between gap-3">
+        
+        <button onclick="toggleSidebar()" class="relative flex items-center justify-center w-11 h-11 bg-white/40 backdrop-blur-[30px] rounded-[16px] border border-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] active:scale-90 transition-all group">
+            <div class="absolute top-0 left-0 w-3 h-3 border-t-[1px] border-l-[1px] border-blue-500/40 rounded-tl-[16px]"></div>
+            
+            <div class="flex flex-col items-center gap-1.5">
+                <span class="w-5 h-[1.5px] bg-slate-800 rounded-full transition-all group-hover:w-3"></span>
+                <span class="w-5 h-[1.5px] bg-slate-800 rounded-full"></span>
+            </div>
+        </button>
+
+        <div class="flex-1 h-11 bg-white/40 backdrop-blur-[30px] rounded-[16px] border border-white flex items-center justify-center px-4 shadow-[0_4px_12px_rgba(0,0,0,0.03)] relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+            
+            <img src="logo-printbam-texte.png" alt="Printbam" class="h-6 w-auto object-contain opacity-90 contrast-125">
+        </div>
+
+        <a href="offres.html" class="relative flex items-center justify-center px-4 h-11 bg-white/60 backdrop-blur-[30px] rounded-[16px] border border-white shadow-[0_8px_16px_rgba(0,0,0,0.05)] active:scale-95 transition-all group overflow-hidden">
+            <div class="absolute top-0 right-0 w-3 h-3 border-t-[1px] border-r-[1px] border-blue-600/30 rounded-tr-[16px]"></div>
+            
+            <div class="flex items-center gap-2">
+                <div class="relative flex h-1.5 w-1.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-600"></span>
+                </div>
+                <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-900/80">Offre</span>
+            </div>
+        </a>
+
     </div>
+</div>
 
     <!-- paramètre ouvert -->
     <div id="settings-overlay" class="fixed inset-0 z-[3000] invisible transition-all duration-500">
@@ -185,9 +181,7 @@
         <p class="text-xs font-bold text-white">Message envoyé avec succès !</p>
         <p class="text-[10px] text-white/40 leading-relaxed text-center">Notre équipe reviendra vers vous sous peu sur votre adresse e-mail.</p>
     </div>
-</section>
-            
-            
+</section>  
             <section class="space-y-3 text-left">
                 <p class="text-[10px] font-black text-white/20 uppercase tracking-[0.2em] mb-4">Questions fréquentes</p>
                 
@@ -207,7 +201,7 @@
                         <i class="fas fa-chevron-down text-[10px] transition-transform group-open:rotate-180"></i>
                     </summary>
                     <div class="px-4 pb-4 text-[11px] text-white/40 leading-relaxed">
-                        Toute commande passée avant 14h est traitée le jour même pour une réception sous 24/48h.
+                        Toute commande passée avant 14h est traitée le jour même pour une réception sous 2h/2,5h.
                     </div>
                 </details>
             </section>
@@ -220,7 +214,7 @@
                     </div>
                     <div>
                         <p class="text-xs font-bold text-white">WhatsApp Business</p>
-                        <p class="text-[10px] text-green-500/70">Réponse en moins de 15min</p>
+                        <p class="text-[10px] text-green-500/70">Réponse en moins de 10min</p>
                     </div>
                 </a>
             </section>
@@ -272,71 +266,87 @@
     <!-- mes commandes fermé -->
     
         <!-- sidebar ouvert -->
-           <div id="sidebar-overlay" class="fixed inset-0 z-[2000] invisible transition-all duration-500">
-    <div id="sidebar-bg" class="absolute inset-0 bg-black/40 backdrop-blur-md opacity-0 transition-opacity duration-500" onclick="toggleSidebar()"></div>
+           <div id="sidebar-overlay" class="fixed inset-0 z-[2000] invisible transition-all duration-700">
+    <div id="sidebar-bg" class="absolute inset-0 bg-white/10 backdrop-blur-xl opacity-0 transition-opacity duration-500" onclick="toggleSidebar()"></div>
     
-    <div id="sidebar-panel" class="absolute left-0 top-0 h-full w-[300px] bg-[#050505] border-r border-white/[0.05] -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.32,0,0.07,1)] flex flex-col shadow-[20px_0_80px_rgba(0,0,0,0.8)]">
+    <div id="sidebar-panel" class="absolute left-0 top-0 h-full w-[290px] bg-white/80 backdrop-blur-[45px] border-r border-white/50 -translate-x-full transition-transform duration-600 ease-[cubic-bezier(0.2,0.8,0.2,1)] flex flex-col shadow-2xl">
         
-        <div class="px-8 pt-12 pb-14 text-left">
-            <div class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-600/20">
-                    <i class="fas fa-print text-white"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-xl font-[1000] tracking-tighter text-white ">Print<span class="text-blue-500">bam</span></span>
-                    <span class="text-[9px] font-bold text-white/30 tracking-[0.4em] mt-1">Savoir documenté</span>
-                </div>
+        <div class="pt-16 pb-12">
+            <div class="px-10">
+                <img src="logo-printbam-complet.png" alt="Printbam" class="h-8 w-auto block">
+                <p class="mt-4 text-[7px] font-black uppercase tracking-[0.4em] text-slate-400">Premium Studio</p>
             </div>
         </div>
 
-        <nav class="flex-1 px-4 space-y-1.5">
-            <p class="px-5 mb-4 text-[10px] font-black text-white/20 uppercase tracking-[0.25em]">Principal</p>
+        <nav class="flex-1 overflow-y-auto">
             
-            <a href="index.html" class="nav-link-pro active">
-                <i class="fas fa-home"></i>
-                <span>Accueil</span>
-            </a>
-            
-            <a href="marketplace.html" class="nav-link-pro">
-                <i class="fas fa-search"></i>
-                <span>Marketplace</span>
-            </a>
-            
-            <a href="javascript:void(0)" onclick="toggleOrders()" class="nav-link-pro">
-                <i class="fas fa-receipt"></i>
-                <span>Mes Commandes</span>
-            </a>
+            <div class="mb-10">
+                <p class="px-10 mb-6 text-[9px] font-black text-slate-300 uppercase tracking-[0.3em]">Explorer</p>
+                
+                <div class="flex flex-col">
+                    <a href="index.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
+                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
+                            <i class="fa-solid fa-house-chimney text-[14px] text-blue-600"></i>
+                        </div>
+                        <span class="pl-5 text-[14px] font-bold text-slate-900 tracking-tight">Accueil</span>
+                    </a>
 
-            <div class="h-px bg-white/[0.03] my-6 mx-5"></div>
+                    <a href="marketplace.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
+                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
+                            <i class="fa-solid fa-shop text-[14px] text-slate-400"></i>
+                        </div>
+                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Marketplace</span>
+                    </a>
 
-            <p class="px-5 mb-4 text-[10px] font-black text-white/20 uppercase tracking-[0.25em]">Préférences</p>
+                    <a href="tarifs.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
+                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
+                            <i class="fa-solid fa-layer-group text-[14px] text-slate-400"></i>
+                        </div>
+                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Nos Services</span>
+                    </a>
 
-            <a href="javascript:void(0)" onclick="toggleSettings()" class="nav-link-pro">
-                <i class="fas fa-cog"></i>
-                <span>Paramètres</span>
-            </a>
+                    <a href="centres.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
+                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
+                            <i class="fa-solid fa-location-dot text-[14px] text-slate-400"></i>
+                        </div>
+                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Nos Centres</span>
+                    </a>
+                </div>
+            </div>
 
-            <a href="javascript:void(0)" onclick="toggleSupport()" class="nav-link-pro">
-                <i class="fas fa-info-circle"></i>
-                <span>Support & Aide</span>
-            </a>
+            <div>
+                <p class="px-10 mb-6 text-[9px] font-black text-slate-300 uppercase tracking-[0.3em]">Gestion</p>
+                
+                <div class="flex flex-col">
+                    <a href="javascript:void(0)" onclick="toggleOrders()" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
+                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
+                            <i class="fa-solid fa-receipt text-[14px] text-slate-400"></i>
+                        </div>
+                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Mes Commandes</span>
+                    </a>
+
+                    <a href="javascript:void(0)" onclick="toggleSettings()" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
+                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
+                            <i class="fa-solid fa-gear text-[14px] text-slate-400"></i>
+                        </div>
+                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Paramètres</span>
+                    </a>
+                </div>
+            </div>
+
         </nav>
 
-        <div class="px-8 pb-10">
-            <div class="relative flex items-center bg-white/[0.03] border border-white/[0.06] p-1 rounded-2xl w-full h-11">
-                <div id="theme-pill" class="absolute h-[80%] w-[47%] bg-white/10 rounded-xl transition-all duration-300 ease-out translate-x-0"></div>
-                
-                <button onclick="setTheme('dark')" id="dark-btn" class="relative z-10 flex-1 py-2 flex items-center justify-center gap-2 text-white transition-colors">
-                    <i class="fas fa-moon text-[10px]"></i>
-                    <span class="text-[9px] font-[900] uppercase tracking-widest">Dark</span>
+        <div class="p-10">
+            <div class="bg-black/5 p-1 rounded-xl flex items-center border border-white">
+                <button onclick="setTheme('light')" class="flex-1 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-sun text-[10px]"></i>
+                    <span class="text-[8px] font-black uppercase">Jour</span>
                 </button>
-                
-                <button onclick="setTheme('light')" id="light-btn" class="relative z-10 flex-1 py-2 flex items-center justify-center gap-2 text-white/30 transition-colors">
-                    <i class="fas fa-sun text-[10px]"></i>
-                    <span class="text-[9px] font-[900] uppercase tracking-widest">Light</span>
+                <button onclick="setTheme('dark')" class="flex-1 h-8 flex items-center justify-center gap-2 text-slate-400">
+                    <i class="fa-solid fa-moon text-[10px]"></i>
+                    <span class="text-[8px] font-black uppercase">Nuit</span>
                 </button>
             </div>
-            <p class="mt-6 text-[8px] font-bold text-white/10 uppercase tracking-[0.2em]">© 2026 Printbam Inc.</p>
         </div>
     </div>
 </div>
@@ -345,10 +355,11 @@
                     <div class="nav-desktop-container fixed top-0 w-full z-[1000] px-6 py-8">
                         <nav id="nav-main" class="nav-desktop max-w-6xl mx-auto rounded-[30px] px-8 py-4 flex justify-between items-center">
                             <a href="index.html" class="flex items-center gap-3">
-                                <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30">
-                                    <i class="fas fa-print text-white text-xs"></i>
-                                </div>
-                                <span class="text-lg font-black tracking-tighter">Print<span class="text-blue-500">bam</span></span>
+                                <nav class="glass-nav fixed w-full z-50 top-0">
+                                    <div class="max-w-10xl mx-auto pl-[27px] pr-2 h-[65px] flex items-center justify-between">
+                                        <img src="logo-printbam-complet.png" class="relative left-[-40px] top-[0px] h-[170%] w-auto rounded-md">
+                                    </div>
+                                </nav>
                             </a>
                     
                             <div class="flex items-center gap-2">
@@ -368,66 +379,85 @@
                 <!-- barre desktop fermé -->
 
                 <!-- barre en bas ouvert -->
-                    <div class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[88%] max-w-[360px] z-[1000] 
-                                bg-[#080808]/70 backdrop-blur-2xl border border-white/[0.05] rounded-[24px] 
-                                px-2 py-1 flex items-center justify-around shadow-2xl">
-                        
-                        <a href="index.html" class="flex flex-1 flex-col items-center gap-0.5">
-                            <i class="fas fa-home text-[15px] text-blue-500"></i>
-                            <span class="text-[6.5px] font-bold uppercase tracking-widest text-blue-500/80">Accueil</span>
-                        </a>
-                    
-                        <a href="marketplace.html" class="flex flex-1 flex-col items-center gap-0.5 text-white/30">
-                            <i class="fas fa-search text-[15px]"></i>
-                            <span class="text-[6.5px] font-bold uppercase tracking-widest">Explorer</span>
-                        </a>
-                    
-                        <div class="flex flex-1 justify-center relative">
-                            <a href="commande.html" class="relative -top-4 flex flex-col items-center">
-                                <div class="relative w-11 h-11 bg-gradient-to-br from-blue-500 to-blue-600 
-                                            rounded-xl flex items-center justify-center 
-                                            shadow-lg shadow-blue-500/20 border-4 border-[#080808]">
-                                    <i class="fas fa-plus text-white text-base"></i>
-                                </div>
-                                <span class="mt-0.5 text-[6.5px] font-black uppercase tracking-tighter text-blue-500">Imprimer</span>
-                            </a>
-                        </div>
-                    
-                            <a href="tarifs.html" class="flex flex-1 flex-col items-center gap-0.5 text-white/30">
-                                <i class="fas fa-tags text-[15px]"></i>
-                                <span class="text-[6.5px] font-bold uppercase tracking-widest">Tarifs</span>
-                            </a>
-                        
-                            <a href="login.html" class="flex flex-1 flex-col items-center gap-0.5 text-white/30">
-                                <i class="fas fa-user text-[15px]"></i>
-                                <span class="text-[6.5px] font-bold uppercase tracking-widest">Profil</span>
-                            </a>
-                     </div>
+                    <div class="md:hidden fixed bottom-4 left-0 w-full z-[1000] px-4">
+    
+    <div class="relative bg-[#1c242f]/80 backdrop-blur-md rounded-2xl px-1 py-2 flex items-center justify-around shadow-lg border border-white/5">
+        
+        <a href="index.html" class="flex flex-1 flex-col items-center group relative">
+            <div class="p-2 transition-transform duration-200 group-active:scale-90">
+                <i class="fas fa-house text-[22px] text-[#50a7ea]"></i>
+                <div class="absolute top-2 right-3 w-2.5 h-2.5 bg-[#50a7ea] rounded-full border-2 border-[#1c242f]"></div>
+            </div>
+            <span class="text-[10px] font-medium text-[#50a7ea]">Accueil</span>
+        </a>
+
+        <a href="marketplace.html" class="flex flex-1 flex-col items-center group">
+            <div class="p-2 transition-transform duration-200 group-active:scale-90 text-gray-400">
+                <i class="fas fa-tags text-[21px]"></i>
+            </div>
+            <span class="text-[10px] font-medium text-gray-400">Offres</span>
+        </a>
+
+        <div class="flex flex-1 justify-center">
+            <a href="commande.html" class="relative group">
+                <div class="relative w-14 h-14 bg-gradient-to-tr from-[#3390ec] to-[#50a7ea] 
+                            rounded-full flex items-center justify-center 
+                            shadow-[0_4px_15px_rgba(80,167,234,0.4)]
+                            transform transition-all duration-300 group-hover:rotate-[-10deg] group-active:scale-95">
+                    <i class="fas fa-print text-white text-xl"></i>
+                </div>
+            </a>
+        </div>
+
+        <a href="tarifs.html" class="flex flex-1 flex-col items-center group">
+            <div class="p-2 transition-transform duration-200 group-active:scale-90 text-gray-400">
+                <i class="fas fa-file-invoice-dollar text-[21px]"></i>
+            </div>
+            <span class="text-[10px] font-medium text-gray-400">Tarifs</span>
+        </a>
+
+        <a href="login.html" class="flex flex-1 flex-col items-center group">
+            <div class="p-2 transition-transform duration-200 group-active:scale-90">
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 p-[1px]">
+                    <div class="w-full h-full bg-[#1c242f] rounded-[7px] flex items-center justify-center">
+                        <i class="fas fa-user text-[14px] text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <span class="text-[10px] font-medium text-gray-400">Moi</span>
+        </a>
+
+    </div>
+</div>
                  <!-- barre en bas fermé -->
                  <!-- minu bouton ouvert -->
-                     <div class="w-full pt-8 pb-4 flex flex-wrap justify-center gap-2 md:gap-3">
-                        <a href="tarifs.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg glass border-white/5 text-[8px] font-bold uppercase tracking-[0.15em] text-white/30 hover:text-blue-500 hover:border-blue-500/20 hover:bg-blue-400/5 transition-all group">
-                            <i class="fas fa-layer-group text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
-                            Nos Services
-                        </a>
-                        <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-lg glass border-white/5 text-[8px] font-bold uppercase tracking-[0.15em] text-white/30 hover:text-blue-500 hover:border-blue-500/20 hover:bg-blue-400/5 transition-all group">
-                            <i class="fas fa-building text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
-                            Solutions Pro
-                        </a>
-                        <a href="support.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg glass border-white/5 text-[8px] font-bold uppercase tracking-[0.15em] text-white/30 hover:text-blue-500 hover:border-blue-500/20 hover:bg-blue-400/5 transition-all group">
-                            <i class="fas fa-headset text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
-                            Support direct
-                        </a>
-                        <a href="centres.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg glass border-white/5 text-[8px] font-bold uppercase tracking-[0.15em] text-white/30 hover:text-blue-500 hover:border-blue-500/20 hover:bg-blue-400/5 transition-all group relative">
-                        <span class="flex h-1.5 w-1.5 relative">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                        </span>
-                        
-                        <i class="fas fa-server text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
-                        Nos Centres
-                    </a>
-                    </div>
+                    <div class="hidden md:flex w-full pt-8 pb-4 flex-wrap justify-center gap-2 md:gap-3 transition-all duration-500">
+    
+    <a href="tarifs.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 text-[8px] font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 hover:border-blue-500/20 hover:bg-blue-50 transition-all group">
+        <i class="fas fa-layer-group text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
+        Nos Services
+    </a>
+
+    <a href="#" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 text-[8px] font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 hover:border-blue-500/20 hover:bg-blue-50 transition-all group">
+        <i class="fas fa-building text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
+        Solutions Pro
+    </a>
+
+    <a href="support.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 text-[8px] font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 hover:border-blue-500/20 hover:bg-blue-50 transition-all group">
+        <i class="fas fa-headset text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
+        Support direct
+    </a>
+
+    <a href="centres.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 text-[8px] font-bold uppercase tracking-[0.15em] text-slate-500 hover:text-blue-600 hover:border-blue-500/20 hover:bg-blue-50 transition-all group relative">
+        <span class="flex h-1.5 w-1.5 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+        </span>
+        <i class="fas fa-server text-[9px] opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-transform"></i>
+        Nos Centres
+    </a>
+
+</div>
                     <!-- minu bouton fermé -->
 
             <!-- contenus ouvert -->
