@@ -181,31 +181,60 @@ window.addEventListener('scroll', () => {
 ===================================================== */
 let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', e => {
+// On capture l'événement mais on ne fait rien pour l'instant
+window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
-    deferredPrompt = e;
+    deferredPrompt = e; // On garde l'événement "au chaud"
 });
 
-function triggerInstall() {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    deferredPrompt = null;
+// La fonction appelée par votre bouton Imprimer
+function handlePrintAction() {
+    // 1. On lance d'abord la demande d'installation si elle est disponible
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('Utilisateur a installé l\'app');
+            }
+            deferredPrompt = null; // On vide pour ne pas redemander
+        });
+    }
+
+    // 2. On lance la fonction d'impression réelle (qu'elle soit installée ou non)
+    window.print(); 
 }
 
     function toggleSidebar() {
-    const overlay = document.getElementById('sidebar-overlay');
-    const bg = document.getElementById('sidebar-bg');
+    const mainContent = document.getElementById('main-content');
     const panel = document.getElementById('sidebar-panel');
+    const overlay = document.getElementById('sidebar-overlay');
 
-    if (overlay.classList.contains('invisible')) {
+    const isOpen = panel.classList.contains('translate-x-0');
+
+    if (!isOpen) {
+        // OUVERTURE PRO
+        panel.classList.replace('-translate-x-full', 'translate-x-0');
+        panel.classList.replace('opacity-0', 'opacity-100');
+        
+        // Effet sur le contenu principal : il recule et s'arrondit
+        mainContent.style.transform = 'translateX(280px) scale(0.82) perspective(2000px) rotateY(-12deg) rotateX(2deg)';
+        mainContent.style.borderRadius = '32px';
+        mainContent.style.overflow = 'hidden';
+        mainContent.style.pointerEvents = 'none'; // Empêche de cliquer sur le site pendant que le menu est ouvert
+
         overlay.classList.remove('invisible');
-        setTimeout(() => {
-            bg.classList.replace('opacity-0', 'opacity-100');
-            panel.classList.replace('-translate-x-full', 'translate-x-0');
-        }, 10);
+        overlay.style.opacity = '1';
     } else {
-        bg.classList.replace('opacity-100', 'opacity-0');
+        // FERMETURE PRO
         panel.classList.replace('translate-x-0', '-translate-x-full');
+        panel.classList.replace('opacity-100', 'opacity-0');
+
+        mainContent.style.transform = 'translateX(0) scale(1) rotateY(0)';
+        mainContent.style.borderRadius = '0px';
+        mainContent.style.pointerEvents = 'auto';
+
+        overlay.style.opacity = '0';
         setTimeout(() => overlay.classList.add('invisible'), 500);
     }
 }
