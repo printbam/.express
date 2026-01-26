@@ -25,30 +25,32 @@
                 <div class="bg-glow"></div>
             <!-- barre du téléphone -->
         <div class="sm:hidden fixed top-0 w-full z-[1002] px-4 py-4 transition-all duration-700" id="mobile-header">
-                <div class="flex items-center justify-between gap-3">
-                <button onclick="toggleSidebar()" class="relative flex items-center justify-center w-11 h-11 bg-white/40 backdrop-blur-[30px] rounded-[16px] border border-white shadow-[0_4px_12px_rgba(0,0,0,0.03)] active:scale-90 transition-all group">
-                    <div class="absolute top-0 left-0 w-3 h-3 border-t-[1px] border-l-[1px] border-blue-500/40 rounded-tl-[16px]"></div>
-                        <div class="flex flex-col items-center gap-1.5">
-                            <span class="w-5 h-[1.5px] bg-slate-800 rounded-full transition-all group-hover:w-3"></span>
-                            <span class="w-5 h-[1.5px] bg-slate-800 rounded-full"></span>
-                        </div>
-                 </button>
-                 <div class="flex-1 h-11 bg-white/40 backdrop-blur-[30px] rounded-[16px] border border-white flex items-center justify-center px-4 shadow-[0_4px_12px_rgba(0,0,0,0.03)] relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-                    <img src="mobile-icon.png" alt="Printbam" class="h-[95px] w-auto object-contain opacity-90 contrast-125">
-                 </div>
-                 <a href="offres.html" class="relative flex items-center justify-center px-4 h-11 bg-white/60 backdrop-blur-[30px] rounded-[16px] border border-white shadow-[0_8px_16px_rgba(0,0,0,0.05)] active:scale-95 transition-all group overflow-hidden">
-                    <div class="absolute top-0 right-0 w-3 h-3 border-t-[1px] border-r-[1px] border-blue-600/30 rounded-tr-[16px]"></div>
+            <div class="flex items-center justify-between gap-3">
+                <button onclick="toggleSidebar()" class="relative flex items-center justify-center w-11 h-11 bg-[#24A1DE]/20 backdrop-blur-[30px] rounded-[16px] border border-[#24A1DE]/30 shadow-[0_4px_12px_rgba(36,161,222,0.1)] active:scale-90 transition-all group">
+                    <div class="absolute top-0 left-0 w-3 h-3 border-t-[1px] border-l-[1px] border-[#24A1DE]/50 rounded-tl-[16px]"></div>
+                    <div class="flex flex-col items-center gap-1.5">
+                        <span class="w-5 h-[1.5px] bg-[#24A1DE] rounded-full transition-all group-hover:w-3"></span>
+                        <span class="w-5 h-[1.5px] bg-[#24A1DE] rounded-full"></span>
+                    </div>
+                </button>
+        
+                <div class="flex-1 h-11 bg-[#24A1DE]/15 backdrop-blur-[30px] rounded-[16px] border border-[#24A1DE]/20 flex items-center justify-center px-4 shadow-[0_4px_12px_rgba(36,161,222,0.1)] relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                    <img src="mobile-iconfin2.png" alt="Printbam" class="h-[95px] w-auto object-contain opacity-100 brightness-110">
+                </div>
+        
+                <a href="offres.html" class="relative flex items-center justify-center px-4 h-11 bg-[#24A1DE] backdrop-blur-[30px] rounded-[16px] shadow-[0_8px_16px_rgba(36,161,222,0.2)] active:scale-95 transition-all group overflow-hidden">
                     <div class="flex items-center gap-2">
                         <div class="relative flex h-1.5 w-1.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-600"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
                         </div>
-                        <span class="text-[9px] font-black uppercase tracking-[0.2em] text-slate-900/80">Offre</span>
+                        <span class="text-[9px] font-black uppercase tracking-[0.2em] text-white">Offre</span>
                     </div>
-                  </a>
+                </a>
             </div>
-            </div>
+        </div>
+    <!-- barre du telephone fermé -->
     <!-- paramètre ouvert -->
     <div id="settings-overlay" class="fixed inset-0 z-[3000] invisible transition-all duration-500">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-xl opacity-0 transition-opacity duration-500" onclick="toggleSettings()"></div>
@@ -230,91 +232,96 @@
         </div>
     <!-- mes commandes fermé -->
         <!-- sidebar ouvert -->
-           <div id="sidebar-overlay" class="fixed inset-0 z-[2000] invisible transition-all duration-700">
-    <div id="sidebar-bg" class="absolute inset-0 bg-white/10 backdrop-blur-xl opacity-0 transition-opacity duration-500" onclick="toggleSidebar()"></div>
-    
-    <div id="sidebar-panel" class="absolute left-0 top-0 h-full w-[290px] bg-white/80 backdrop-blur-[45px] border-r border-white/50 -translate-x-full transition-transform duration-600 ease-[cubic-bezier(0.2,0.8,0.2,1)] flex flex-col shadow-2xl">
-        
-        <div class="pt-16 pb-12">
+                   <div id="sidebar-overlay" class="fixed inset-0 z-[2000] invisible transition-all duration-700">
+                <div id="sidebar-bg" class="absolute inset-0 bg-slate-900/60 backdrop-blur-md opacity-0 transition-opacity duration-500" onclick="toggleSidebar()"></div>
+                
+    <div id="main-content" class="transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] origin-left">
+   </div>
+
+    <div id="sidebar-panel" class="fixed top-0 left-0 h-full w-[280px] bg-gradient-to-br from-[#24A1DE] via-[#1d7eb1] to-[#165e85] z-[2001] -translate-x-full opacity-0 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] flex flex-col">
+
+        <div class="pt-0 pb-0">
             <div class="px-10">
-                <img src="logo-printbam-complet.png" alt="Printbam" class="h-8 w-auto block">
-                <p class="mt-4 text-[7px] font-black uppercase tracking-[0.4em] text-slate-400">Premium Studio</p>
+                <img src="logo-printbam-complet.png" alt="Printbam" class="relative left-[-22px] top-[0px] h-[90px] w-auto rounded-md">
+                <!-- <p class="mt- text-[7px] font-black tracking-[0.4em] text-blue-100/60">Savoir numerique</p> -->
             </div>
         </div>
 
         <nav class="flex-1 overflow-y-auto">
             
-            <div class="mb-10">
-                <p class="px-10 mb-6 text-[9px] font-black text-slate-300 uppercase tracking-[0.3em]">Explorer</p>
+            <div class="mb-5">
+                <p class="px-10 mb-0 text-[9px] font-black text-blue-100/40 uppercase tracking-[0.3em]">Explorer</p>
                 
                 <div class="flex flex-col">
-                    <a href="index.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
-                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
-                            <i class="fa-solid fa-house-chimney text-[14px] text-blue-600"></i>
+                    <a href="index.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/10 transition-all">
+                        <div class="flex justify-center border-r border-white/10 group-hover:border-white transition-colors">
+                            <i class="fa-solid fa-house-chimney text-[14px] text-white"></i>
                         </div>
-                        <span class="pl-5 text-[14px] font-bold text-slate-900 tracking-tight">Accueil</span>
+                        <span class="pl-5 text-[14px] font-bold text-white tracking-tight">Accueil</span>
                     </a>
 
-                    <a href="marketplace.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
-                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
-                            <i class="fa-solid fa-shop text-[14px] text-slate-400"></i>
+                    <a href="marketplace.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/10 transition-all">
+                        <div class="flex justify-center border-r border-white/10 group-hover:border-white transition-colors">
+                            <i class="fa-solid fa-shop text-[14px] text-blue-100/70 group-hover:text-white"></i>
                         </div>
-                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Marketplace</span>
+                        <span class="pl-5 text-[14px] font-bold text-blue-100/70 group-hover:text-white tracking-tight">Marketplace</span>
                     </a>
 
-                    <a href="tarifs.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
-                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
-                            <i class="fa-solid fa-layer-group text-[14px] text-slate-400"></i>
+                    <a href="tarifs.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/10 transition-all">
+                        <div class="flex justify-center border-r border-white/10 group-hover:border-white transition-colors">
+                            <i class="fa-solid fa-layer-group text-[14px] text-blue-100/70 group-hover:text-white"></i>
                         </div>
-                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Nos Services</span>
-                    </a>
-
-                    <a href="centres.html" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
-                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
-                            <i class="fa-solid fa-location-dot text-[14px] text-slate-400"></i>
-                        </div>
-                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Nos Centres</span>
+                        <span class="pl-5 text-[14px] font-bold text-blue-100/70 group-hover:text-white tracking-tight">Nos Services</span>
                     </a>
                 </div>
             </div>
 
             <div>
-                <p class="px-10 mb-6 text-[9px] font-black text-slate-300 uppercase tracking-[0.3em]">Gestion</p>
+                <p class="px-10 mb-6 text-[9px] font-black text-blue-100/40 uppercase tracking-[0.3em]">Gestion</p>
                 
                 <div class="flex flex-col">
-                    <a href="javascript:void(0)" onclick="toggleOrders()" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
-                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
-                            <i class="fa-solid fa-receipt text-[14px] text-slate-400"></i>
+                    <a href="javascript:void(0)" onclick="toggleOrders()" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/10 transition-all">
+                        <div class="flex justify-center border-r border-white/10 group-hover:border-white transition-colors">
+                            <i class="fa-solid fa-receipt text-[14px] text-blue-100/70 group-hover:text-white"></i>
                         </div>
-                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Mes Commandes</span>
+                        <span class="pl-5 text-[14px] font-bold text-blue-100/70 group-hover:text-white tracking-tight">Mes Commandes</span>
                     </a>
 
-                    <a href="javascript:void(0)" onclick="toggleSettings()" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/50 transition-all">
-                        <div class="flex justify-center border-r border-slate-100 group-hover:border-blue-500 transition-colors">
-                            <i class="fa-solid fa-gear text-[14px] text-slate-400"></i>
+                    <a href="javascript:void(0)" onclick="toggleSettings()" class="grid grid-cols-[60px_1fr] items-center h-12 group hover:bg-white/10 transition-all">
+                        <div class="flex justify-center border-r border-white/10 group-hover:border-white transition-colors">
+                            <i class="fa-solid fa-gear text-[14px] text-blue-100/70 group-hover:text-white"></i>
                         </div>
-                        <span class="pl-5 text-[14px] font-bold text-slate-500 group-hover:text-slate-900 tracking-tight">Paramètres</span>
+                        <span class="pl-5 text-[14px] font-bold text-blue-100/70 group-hover:text-white tracking-tight">Paramètres</span>
                     </a>
                 </div>
             </div>
 
         </nav>
 
-        <div class="p-10">
-            <div class="bg-black/5 p-1 rounded-xl flex items-center border border-white">
-                <button onclick="setTheme('light')" class="flex-1 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-sun text-[10px]"></i>
-                    <span class="text-[8px] font-black uppercase">Jour</span>
-                </button>
-                <button onclick="setTheme('dark')" class="flex-1 h-8 flex items-center justify-center gap-2 text-slate-400">
-                    <i class="fa-solid fa-moon text-[10px]"></i>
-                    <span class="text-[8px] font-black uppercase">Nuit</span>
-                </button>
+        <div class="mt-auto border-t border-white/5 pt-2 pb-6">
+    <p class="px-6 py-2 text-[10px] font-bold text-blue-100/30 uppercase tracking-[0.2em]">Apparence</p>
+    
+    <div class="flex flex-col">
+        <button onclick="setTheme('light')" class="group flex items-center justify-between px-6 py-3 hover:bg-white/5 transition-all w-full text-left">
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-sun text-[14px] text-blue-100/40 group-hover:text-white transition-colors"></i>
+                <span class="text-[13px] font-medium text-blue-100/60 group-hover:text-white">Thème clair</span>
             </div>
-        </div>
+            <div id="check-light" class="hidden w-1.5 h-1.5 rounded-full bg-[#24A1DE] shadow-[0_0_8px_#24A1DE]"></div>
+        </button>
+
+        <button onclick="setTheme('dark')" class="group flex items-center justify-between px-6 py-3 hover:bg-white/5 transition-all w-full text-left">
+            <div class="flex items-center gap-4">
+                <i class="fa-solid fa-moon text-[14px] text-[#24A1DE]"></i>
+                <span class="text-[13px] font-medium text-white">Thème sombre</span>
+            </div>
+            <div id="check-dark" class="block w-1.5 h-1.5 rounded-full bg-[#24A1DE] shadow-[0_0_8px_#24A1DE]"></div>
+        </button>
     </div>
 </div>
-            <!-- sidebar fermé -->
+    </div>
+</div>
+      <!-- sidebar fermé -->
                         <!-- barre desktop ouvert -->
                     <div class="nav-desktop-container fixed top-0 w-full z-[1000] px-6 py-8">
                         <nav id="nav-main" class="nav-desktop max-w-6xl mx-auto rounded-[30px] px-8 py-4 flex justify-between items-center">
